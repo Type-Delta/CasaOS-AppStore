@@ -5,7 +5,7 @@ services:
       PGID: $PGID
       PUID: $PUID
       TZ: $TZ
-    image: filebrowser/filebrowser:v2.32.0
+    image: filebrowser/filebrowser:v2.33.0
     deploy:
       resources:
         reservations:
@@ -23,7 +23,7 @@ services:
       - type: bind
         source: /DATA
         target: /srv
-    entrypoint: ["/filebrowser", "-c", "/data/.filebrowser.json", "-d", "/data/database.db", "-a", "0.0.0.0", "-p", "80"]
+    entrypoint: ["/bin/filebrowser", "-c", "/data/.filebrowser.json", "-d", "/data/database.db", "-a", "0.0.0.0", "-p", "80"]
     x-casaos:
       envs:
         - container: TZ
